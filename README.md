@@ -1,6 +1,6 @@
 # tp3--tp6 README
 
-ThinkPHP 版本3到版本6的迁移小助手.
+VSCODE ThinkPHP 版本3到版本6的迁移小助手.
 
 ## 功能
 
