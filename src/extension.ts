@@ -37,8 +37,52 @@ export function activate(context: vscode.ExtensionContext) {
 					'replace': 'input($1)'
 				}
 				,{
+					're':/S\((.*?)\)/g,
+					'replace': 'cache($1)'
+				}
+				,{
+					're':/U\((.*?)\)/g,
+					'replace': 'url($1)'
+				}
+				,{
+					're':/C\((.*?)\)/g,
+					'replace': 'config($1)'
+				}
+				,{
+					're':/E\((.*?)\)/g,
+					'replace': 'abort($1)'
+				}
+				,{
+					're':/L\((.*?)\)/g,
+					'replace': 'lang($1)'
+				}
+				,{
+					're':/(\\Think\\)?Log::(record|write)\((.*?)\)/g,
+					'replace': 'trace($3)'
+				}
+				,{
+					're':/M\((.*?)\)(.*?)add\((.*?)\)/g,
+					'replace': 'M($1)$2insert($3)'
+				}
+				,{
+					're':/M\((.*?)\)(.*?)save\((.*?)\)/g,
+					'replace': 'M($1)$2update($3)'
+				}
+				,{
+					're':/M\((.*?)\)(.*?)getField\(([^,]*?)\)/g,
+					'replace': 'M($1)$2value($3)'
+				}
+				,{
+					're':/M\((.*?)\)(.*?)getField\((.*?),.*?[true|TRUE].*?\)/g,
+					'replace': 'M($1)$2column($3)'
+				}
+				,{
+					're':/M\((.*?)\)(.*?)getField\((.*?)\)/g,
+					'replace': 'M($1)$2column($3)'
+				}
+				,{
 					're':/M\((.*?)\)/g,
-					'replace': 'db($1)'
+					'replace': 'Db::table($1)'
 				}
 				,{
 					're':/\$_POST\[[\'\"](.*?)[\'\"]\]/g,
@@ -51,6 +95,18 @@ export function activate(context: vscode.ExtensionContext) {
 				,{
 					're':/\$_REQUEST\[[\'\"](.*?)[\'\"]\]/g,
 					'replace': 'input(\'param.$1\')'
+				}
+				,{
+					're':/\$_SESSION\[[\'\"](.*?)[\'\"]\]/g,
+					'replace': 'session(\'$1\')'
+				}
+				,{
+					're':/\$_COOKIE\[[\'\"](.*?)[\'\"]\]/g,
+					'replace': 'cookie(\'$1\')'
+				}
+				,{
+					're':/\$_SERVER\[[\'\"](.*?)[\'\"]\]/g,
+					'replace': 'input(\'server.$1\')'
 				}
 				,{
 					're':/\$this->assign\((.*?)\)/g,
