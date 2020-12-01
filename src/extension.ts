@@ -151,12 +151,16 @@ export function activate(context: vscode.ExtensionContext) {
 			//正则替换
 			const reList = [
 				{
-					're':/<(eq|neq|gt|egt|lt|elt|heq|nheq|in|notin|between|notbetween|empty|notempty|if|present|volist|switch|include|extend|block)(.*?)>/g,
+					're':/<(eq|neq|gt|egt|lt|elt|heq|nheq|notin|between|notbetween|empty|notempty|if|present|volist|switch|include|extend|block)(.*?)>/g,
 					'replace': '{$1$2}'
 				}
 				,{
 					're':/<\/(eq|neq|gt|egt|lt|elt|heq|nheq|in|notin|between|notbetween|empty|notempty|if|present|volist|switch|block)>/g,
 					'replace': '{/$1}'
+				}
+				,{
+					're':/<in\s+(.*?)>/g,
+					'replace':'{in $1}',
 				}
 				,{
 					're':/<case(.*?)>(.*?)<\/case>/gm,
