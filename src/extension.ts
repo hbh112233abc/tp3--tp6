@@ -57,8 +57,24 @@ export function activate(context: vscode.ExtensionContext) {
 					'replace': 'lang($1)'
 				}
 				,{
+					're':/^class /g,
+					'replace':"use think\\facade\\Db;\nuse think\\facade\\View;\nclass "
+				}
+				,{
 					're':/(\\Think\\)?Log::(record|write)\((.*?)\)/g,
 					'replace': 'trace($3)'
+				}
+				,{
+					're':/M\(\)->startTrans\(\)/g,
+					'replace':'Db::startTrans()'
+				}
+				,{
+					're':/M\(\)->commit\(\)/g,
+					'replace':'Db::commit()'
+				}
+				,{
+					're':/M\(\)->rollback\(\)/g,
+					'replace':'Db::rollback()'
 				}
 				,{
 					're':/M\((.*?)\)(.*?)add\((.*?)\)/g,

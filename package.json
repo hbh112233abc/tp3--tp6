@@ -3,7 +3,7 @@
 	"displayName": "tp3->tp6",
 	"description": "ThinkPHP版本3到6迁移助手",
 	"publisher": "huangbinghe",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"repository": "https://github.com/hbh112233abc/tp3--tp6",
 	"engines": {
 		"vscode": "^1.51.0"

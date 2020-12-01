@@ -23,6 +23,9 @@ VSCODE ThinkPHP 版本3到版本6的迁移小助手.
 |setField|update|
 |setInc|inc()->update()|
 |setDec|dec()->update()|
+|M()->startTrans()|Db::startTrans()|
+|M()->commit()|Db::commit()|
+|M()->rollback()|Db::rollback()|
 |M|Db::table|
 |$_GET['xx']|input('param.xx')|
 |$_POST['xx']|input('post.xx')|
@@ -32,6 +35,12 @@ VSCODE ThinkPHP 版本3到版本6的迁移小助手.
 |$_SERVER['xx']|input('server.xx')|
 |$this->assign|View::assign|
 |$this->display|return View::fetch|
+
+> 自动引入Db,View
+```
+use think\facade\Db;
+use think\facade\View;
+```
 
 2. 模板html文件的匹配替换
 
