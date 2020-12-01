@@ -81,6 +81,34 @@ export function activate(context: vscode.ExtensionContext) {
 					'replace': 'M($1)$2column($3)'
 				}
 				,{
+					're':/getField\(([^,]*?)\)/g,
+					'replace': 'value($1)'
+				}
+				,{
+					're':/getField\((.*?),.*?[true|TRUE].*?\)/g,
+					'replace': 'column($1)'
+				}
+				,{
+					're':/getField\((.*?)\)/g,
+					'replace': 'column($1)'
+				}
+				,{
+					're':/setField\(([^=>]*?),(.*?)\)/g,
+					'replace': 'update([$1=>$2])'
+				}
+				,{
+					're':/setField\((.*?)\)/g,
+					'replace': 'update($1)'
+				}
+				,{
+					're':/setInc\((.*?)\)/g,
+					'replace': 'inc($1)->update()'
+				}
+				,{
+					're':/setDec\((.*?)\)/g,
+					'replace': 'dec($1)->update()'
+				}
+				,{
 					're':/M\((.*?)\)/g,
 					'replace': 'Db::table($1)'
 				}

@@ -19,7 +19,10 @@ VSCODE ThinkPHP 版本3到版本6的迁移小助手.
 |Log|trace|
 |M()->...->add()|insert|
 |M()->...->save()|update|
-|M()->...->getField()|value/column|
+|getField()|value/column|
+|setField|update|
+|setInc|inc()->update()|
+|setDec|dec()->update()|
 |M|Db::table|
 |$_GET['xx']|input('param.xx')|
 |$_POST['xx']|input('post.xx')|
