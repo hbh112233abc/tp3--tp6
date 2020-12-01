@@ -15,6 +15,7 @@
 		,"onCommand:tp3--tp6.template"
 	],
 	"main": "./out/extension.js",
+	"icon": "images/logo.png",
 	"contributes": {
 		"commands": [
 			{
